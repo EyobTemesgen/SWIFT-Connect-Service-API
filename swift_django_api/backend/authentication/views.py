@@ -74,8 +74,7 @@ class LogoutView(APIView):
         except TokenError:
             raise AuthenticationFailed("Invalid Token")
 
-# Create view for Bills
-# Path: bills/views.py
+
 class BillsView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request):
@@ -84,8 +83,7 @@ class BillsView(APIView):
         return Response(serializer.data)
     
     def post(self, request):
-        # if not request.user.is_authenticated:
-        #     return Response({"error": "User is not authenticated."}, status=401)
+ 
         serializer = BillSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -146,10 +144,10 @@ def create_payment(request):
             amount = 2000
         if amount is not None:
             try:
-                # Convert amount to float before multiplying
+               
                 amount_float = float(amount)
 
-                # Use int(amount_float) to convert the float to an integer
+    
                 payment_intent = stripe.PaymentIntent.create(
                     amount=int(amount_float * 100),
                     currency='usd',
@@ -157,7 +155,7 @@ def create_payment(request):
 
                 Payment.objects.create(
                     amount=amount_float,
-                    status=request.POST.get('status', ''),  # Assuming 'status' is also part of the request
+                    status=request.POST.get('status', ''),  
                     transaction_id=request.POST.get('transaction_id', ''),
                 )
 
@@ -191,12 +189,10 @@ admin_group, created = Group.objects.get_or_create(name='Admin')
 if created:
     admin_group.permissions.add(Permission.objects.get(codename='admin_permissions'))
 
-# Create Biller group
 biller_group, created = Group.objects.get_or_create(name='Biller')
 if created:
     biller_group.permissions.add(Permission.objects.get(codename='biller_permissions'))
 
-# Create Customer group
 customer_group, created = Group.objects.get_or_create(name='Customer')
 if created:
     customer_group.permissions.add(Permission.objects.get(codename='customer_permissions'))

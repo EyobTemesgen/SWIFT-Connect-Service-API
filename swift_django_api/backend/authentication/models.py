@@ -96,7 +96,7 @@ class Report(models.Model):
         return str(self.report_title) + " - " + str(self.report_date)
 
 
-# Create Customer Model
+
 class Customer(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=250)
@@ -105,7 +105,7 @@ class Customer(models.Model):
     def __str__(self):
         return self.name 
 
-# Create a new group
+
 class CustomPermissions(models.Model):
     class Meta:
         permissions = [
