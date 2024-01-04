@@ -38,17 +38,7 @@ class Migration(migrations.Migration):
                 'abstract': False,
             },
         ),
-        migrations.CreateModel(
-            name='Bill',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('bill_name', models.CharField(max_length=250)),
-                ('bill_amount', models.IntegerField()),
-                ('bill_date', models.DateField()),
-                ('status', models.CharField(choices=[('pending', 'Pending'), ('paid', 'Paid'), ('overdue', 'Overdue')], default='pending', max_length=10)),
-                ('biller_name', models.CharField(max_length=255)),
-            ],
-        ),
+       
         migrations.CreateModel(
             name='Customer',
             fields=[
@@ -57,34 +47,5 @@ class Migration(migrations.Migration):
                 ('email', models.CharField(max_length=250)),
                 ('password', models.CharField(max_length=250)),
             ],
-        ),
-        migrations.CreateModel(
-            name='Payment',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('status', models.CharField(max_length=20)),
-                ('transaction_id', models.CharField(max_length=50)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Report',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('report_title', models.CharField(max_length=250)),
-                ('report_date', models.DateField()),
-                ('bill', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='authentication.bill')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Reminder',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('reminder_title', models.CharField(max_length=250)),
-                ('reminder_date', models.DateField()),
-                ('bill', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='authentication.bill')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
+        ),  
     ]

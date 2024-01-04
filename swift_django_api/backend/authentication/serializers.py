@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Bill, Payment, Report, Reminder, Customer, Product, SwiftConnection
+from .models import User, Customer, SwiftConnection
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,11 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
         
-class BillSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Bill
-        fields = ['id', 'bill_name', 'bill_amount', 'bill_date', 'status', 'biller_name']
-        read_only_fields = ['id']
+
 
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,12 +27,8 @@ class CustomerSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'email', 'password']
         read_only_fields = ['id']
 
-class ProductSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product
-        fields = '__all__'
 class SwiftConnectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = SwiftConnection
-        fields = '__all__'
+        fields = ['id', 'companyName', 'companyAddress', 'contactPhone', 'contactEmail', 'status' ]
         read_only_fields = ['id']

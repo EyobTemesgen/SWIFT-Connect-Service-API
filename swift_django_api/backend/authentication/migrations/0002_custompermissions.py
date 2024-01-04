@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
             ],
             options={
-                'permissions': [('admin_permissions', 'Can manage users, system configurations, and overall system settings'), ('biller_permissions', 'Can create bills, monitor payments, and manage biller-specific settings'), ('customer_permissions', 'Can view and pay bills, receive reminders, and access payment history')],
+                'permissions': [('admin_permissions', 'Can manage users, system configurations, and overall system settings'),  ('customer_permissions', ' receive reminders, and access payment history')],
             },
         ),
     ]

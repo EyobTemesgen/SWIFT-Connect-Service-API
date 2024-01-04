@@ -15,15 +15,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='user_type',
-            field=models.CharField(choices=[('B', 'Biller'), ('A', 'Admin'), ('C', 'Customer')], default='C', max_length=1),
+            field=models.CharField(choices=[ ('A', 'Admin'), ('C', 'Customer')], default='C', max_length=1),
         ),
-        migrations.CreateModel(
-            name='Biller',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
+      
         migrations.CreateModel(
             name='Admin',
             fields=[

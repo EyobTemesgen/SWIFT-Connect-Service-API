@@ -31,7 +31,6 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
     USER_TYPE_CHOICES = (
-        ('B', 'Biller'),
         ('A', 'Admin'),
         ('C', 'Customer'),
     )
@@ -48,8 +47,6 @@ class User(AbstractUser):
 
     objects = UserManager()
 
-class Biller(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Admin(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -57,43 +54,8 @@ class Admin(models.Model):
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-class Bill(models.Model):
-    STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('paid', 'Paid'),
-        ('overdue', 'Overdue'),
-    ]
-    id = models.AutoField(primary_key=True)
-    bill_name = models.CharField(max_length=250)
-    bill_amount = models.IntegerField()
-    bill_date = models.DateField()
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
-    biller_name = models.CharField(max_length=255)
 
-    def __str__(self):
-        return f"{self.bill_name} - {self.biller_name} - {self.bill_amount} - {self.bill_date} - {self.status}"
 
-class Payment(models.Model):
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=20)
-    transaction_id = models.CharField(max_length=50) 
-
-class Reminder(models.Model):
-    bill = models.ForeignKey(Bill, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    reminder_title = models.CharField(max_length=250)
-    reminder_date = models.DateField()
-
-    def __str__(self):
-        return str(self.reminder_title) + " - " + str(self.reminder_date)
-class Report(models.Model):
-    bill = models.ForeignKey(Bill, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    report_title = models.CharField(max_length=250)
-    report_date = models.DateField()
-
-    def __str__(self):
-        return str(self.report_title) + " - " + str(self.report_date)
 
 
 
@@ -110,17 +72,9 @@ class CustomPermissions(models.Model):
     class Meta:
         permissions = [
             ("admin_permissions", "Can manage users, system configurations, and overall system settings"),
-            ("biller_permissions", "Can create bills, monitor payments, and manage biller-specific settings"),
-            ("customer_permissions", "Can view and pay bills, receive reminders, and access payment history"),
+            ("customer_permissions", " receive reminders, and access payment history"),
         ]
 
-class Product(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return self.name
 
 class SwiftConnection(models.Model):
     STATUS_CHOICES = [
@@ -130,10 +84,10 @@ class SwiftConnection(models.Model):
     ]
     id = models.AutoField(primary_key=True)
     companyName = models.CharField(max_length=255)
-    companyAddress: models.CharField(max_length=255)
+    companyAddress= models.CharField(max_length=255)
     contactPhone = models.CharField(max_length=255)
     contactEmail = models.CharField(max_length=255)
-    status: models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+    status= models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
     def __str__(self):
         return self.companyName
