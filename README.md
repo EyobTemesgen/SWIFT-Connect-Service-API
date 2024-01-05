@@ -63,8 +63,8 @@ o	How will user feedback be collected and incorporated into future improvements?
 - Scalability to handle increasing onboarding requests
 - User-friendly interfaces with intuitive design
 
-### Wireframe - CRM Module Request Processing Screens
- open the following link and play it to see the sample wireframe design
+### Wireframe - CRM Module Onboarding Request Processing Screens
+ open the following link and play it to see the sample wireframe design for onboarding request form
 https://www.figma.com/file/qmiRiKbfmkQnD0xqdKCnUg/SWIFT-Connect-Service?type=design&node-id=0%3A1&mode=design&t=JvLBMt9WB4xYb3yz-1
 
 ## Technology Stack
@@ -73,10 +73,7 @@ https://www.figma.com/file/qmiRiKbfmkQnD0xqdKCnUg/SWIFT-Connect-Service?type=des
 - SQL: Database for storing onboarding requests and customer data
 
 ## Setting Up & Running the Project
-1. Clone the SWIFT-Connect-Service-web repository: `https://github.com/EyobTemesgen/SWIFT-Connect-Service-web.git`
-2. Clone SWIFT-Connect-Service-API repository:
-3. Set up the Python environment and dependencies.
-4. Create and configure the SQL database.
-5. Run the necessary scripts to set up tables and initial data.
-6. Start the development server.
-7. Access the web interface and CRM module SWIFT Connectivity.
+1. Clone the SWIFT-Connect-Service-API repository: `https://github.com/EyobTemesgen/SWIFT-Connect-Service-API.git`
+2. Set up the Python environment and dependencies. (install python, create virtual environment and activate virtual environment)
+3. Start the Django development server, (python manage.py run server)
+4. Access the web interface and CRM module SWIFT Connectivity module.
