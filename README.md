@@ -77,3 +77,15 @@ https://www.figma.com/file/qmiRiKbfmkQnD0xqdKCnUg/SWIFT-Connect-Service?type=des
 2. Set up the Python environment and dependencies. (install python, create virtual environment and activate virtual environment)
 3. Start the Django development server, (python manage.py run server)
 4. Access the web interface and CRM module SWIFT Connectivity module.
+   ![image](https://github.com/EyobTemesgen/SWIFT-Connect-Service-web/assets/111111244/c638c60b-edcb-49d6-bf1d-3b68b0451ade)
+
+![image](https://github.com/EyobTemesgen/SWIFT-Connect-Service-web/assets/111111244/825108fc-d349-4de4-ab13-df1f2b2ef71f)
+
+
+![image](https://github.com/EyobTemesgen/SWIFT-Connect-Service-web/assets/111111244/f6ffe5b6-842f-42a5-a840-a8d3807e6f4b)
+
+![image](https://github.com/EyobTemesgen/SWIFT-Connect-Service-web/assets/111111244/e3551fb3-2836-45fc-af5e-96996b7b5fbc)
+
+![image](https://github.com/EyobTemesgen/SWIFT-Connect-Service-web/assets/111111244/6c158bc4-1622-4374-aa71-453cbdf61326)
+
+![image](https://github.com/EyobTemesgen/SWIFT-Connect-Service-web/assets/111111244/3aaa4c24-710b-460d-8822-6dcd5b6c11a4)
