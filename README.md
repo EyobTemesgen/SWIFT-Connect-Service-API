@@ -1,4 +1,4 @@
-# SWIFT Connect Service Electronic Onboarding
+# SWIFT Connect Onboarding Service  
 
 ## Overview
 Haron Computer is transitioning from manual onboarding processes to an electronic process for onboarding business customers onto their SWIFT Connect service. This README provides an overview of the requirements, design, technology stack, and instructions for setting up and running the project.
